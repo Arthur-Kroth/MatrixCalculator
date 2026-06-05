@@ -63,6 +63,8 @@ public class Main {
             System.out.print("Which operation do you want to perform: ");
             operation = sc.nextInt();
 
+            double[][] result;
+
             switch (operation) {
                 case 1:
                     System.out.println("Matrix A:");
@@ -71,11 +73,35 @@ public class Main {
                     System.out.println("Matrix B:");
                     op.showMatrix(rowsB, columnsB, matrixB);
                     System.out.println("=");
-                    double[][] result = op.add();
+                    result = op.add();
                     op.showMatrix(result.length, result[0].length, result);
                     break;
                 case 2:
-                    System.out.println("Fuck You?");
+                    System.out.println("[1] A - B");
+                    System.out.println("[2] B - A");
+                    System.out.print("Which operation do you want to perform: ");
+                    int o = sc.nextInt();
+                    if (o == 1) {
+                        System.out.println("Matrix A:");
+                        op.showMatrix(rowsA, columnsA, matrixA);
+                        System.out.println("-");
+                        System.out.println("Matrix B:");
+                        op.showMatrix(rowsB, columnsB, matrixB);
+                        System.out.println("=");
+                        result = op.subtract(matrixA, matrixB);
+                        op.showMatrix(result.length, result[0].length, result);
+                    } else if (o == 2) {
+                        System.out.println("Matrix B:");
+                        op.showMatrix(rowsB, columnsB, matrixB);
+                        System.out.println("-");
+                        System.out.println("Matrix A:");
+                        op.showMatrix(rowsA, columnsA, matrixA);
+                        System.out.println("=");
+                        result = op.subtract(matrixB, matrixA);
+                        op.showMatrix(result.length, result[0].length, result);
+                    } else {
+                        System.out.println("error");
+                    }
                     break;
                 case 3:
                     System.out.println("Fuck You?");
