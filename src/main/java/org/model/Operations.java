@@ -33,13 +33,7 @@ public class Operations {
     }
 
     public double[][] add() {
-        if (matrixA.length < 1 || matrixB.length < 1) {
-            throw new IllegalArgumentException("Matrices cannot have fewer than 1 row.");
-        } else if (matrixA[0].length < 1 || matrixB[0].length < 1) {
-            throw new IllegalArgumentException("Matrices cannot have fewer than 1 column.");
-        } else if (matrixA.length != matrixB.length || matrixA[0].length != matrixB[0].length) {
-            throw new IllegalArgumentException("The matrices must have the same number of rows and columns.");
-        }
+        check();
 
         double[][] add = new double[matrixA.length][matrixA[0].length];
         for (int i = 0; i < matrixA.length; i++) {
