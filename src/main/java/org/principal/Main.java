@@ -11,7 +11,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        int columnsA, rowA, columnsB, rowB, operation;
+        int columnsA, rowsA, columnsB, rowsB, operation;
 
         System.out.println("=================");
         System.out.println("Matrix Calculator");
@@ -21,12 +21,12 @@ public class Main {
         System.out.print("How many columns will matrix A have: ");
         columnsA = sc.nextInt();
         System.out.print("How many rows will matrix A have: ");
-        rowA = sc.nextInt();
+        rowsA = sc.nextInt();
         System.out.println(" ");
 
-        double[][] matrixA = new double[rowA][columnsA];
+        double[][] matrixA = new double[rowsA][columnsA];
 
-        for (int i = 0; i < rowA; i++) {
+        for (int i = 0; i < rowsA; i++) {
             for (int j = 0; j < columnsA; j++) {
                 System.out.print("Write the number of row " + i + " and column " + j + ": ");
                 matrixA[i][j] = sc.nextDouble();
@@ -36,12 +36,12 @@ public class Main {
         System.out.print("How many columns will matrix B have: ");
         columnsB = sc.nextInt();
         System.out.print("How many rows will matrix B have: ");
-        rowB = sc.nextInt();
+        rowsB = sc.nextInt();
         System.out.println(" ");
 
-        double[][] matrixB = new double[rowB][columnsB];
+        double[][] matrixB = new double[rowsB][columnsB];
 
-        for (int i = 0; i < rowB; i++) {
+        for (int i = 0; i < rowsB; i++) {
             for (int j = 0; j < columnsB; j++) {
                 System.out.print("Write the number of row " + i + " and column " + j + ": ");
                 matrixB[i][j] = sc.nextDouble();
@@ -66,27 +66,13 @@ public class Main {
             switch (operation) {
                 case 1:
                     System.out.println("Matrix A:");
-                    for (int i = 0; i < rowA; i++) {
-                        for (int j = 0; j < columnsA; j++) {
-                            System.out.print("[" + matrixA[i][j] + "]");
-                        }
-                        System.out.println();
-                    }
+                    op.showMatrix(rowsA, columnsA, matrixA);
                     System.out.println("+");
                     System.out.println("Matrix B:");
-                    for (int i = 0; i < rowB; i++) {
-                        for (int j = 0; j < columnsB; j++) {
-                            System.out.print("[" + matrixB[i][j] + "]");
-                        }
-                        System.out.println();
-                    }
+                    op.showMatrix(rowsB, columnsB, matrixB);
                     System.out.println("=");
-                    for (int i = 0; i < op.add(matrixA, matrixB).length; i++) {
-                        for (int j = 0; j < op.add(matrixA, matrixB)[0].length; j++) {
-                            System.out.print("[" + op.add(matrixA, matrixB)[i][j] + "]");
-                        }
-                        System.out.println();
-                    }
+                    double[][] result = op.add();
+                    op.showMatrix(result.length, result[0].length, result);
                     break;
                 case 2:
                     System.out.println("Fuck You?");
@@ -98,24 +84,17 @@ public class Main {
                     System.out.println("Fuck You?");
                     break;
                 case 5:
-                    for (int i = 0; i < rowA; i++) {
-                        for (int j = 0; j < columnsA; j++) {
-                            System.out.print("[" + matrixA[i][j] + "]");
-                        }
-                        System.out.println();
-                    }
+                    op.showMatrix(rowsA, columnsA, matrixA);
                     break;
                 case 6:
-                    for (int i = 0; i < rowB; i++) {
-                        for (int j = 0; j < columnsB; j++) {
-                            System.out.print("[" + matrixB[i][j] + "]");
-                        }
-                        System.out.println();
-                    }
+                    op.showMatrix(rowsB, columnsB, matrixB);
                     break;
                 case 7:
                     System.out.println("GOODBYE!");
                     System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid option");
                     break;
             }
         }

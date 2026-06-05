@@ -13,7 +13,16 @@ public class Operations {
         this.matrixB = matrixB;
     }
 
-    public double[][] add(double[][] matrixA, double[][] matrixB) {
+    public void showMatrix(int rows, int columns, double[][] matrix) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("[" + matrix[i][j] + "]");
+            }
+            System.out.println();
+        }
+    }
+
+    public double[][] add() {
         if (matrixA.length < 1 || matrixB.length < 1) {
             throw new IllegalArgumentException("Matrices cannot have fewer than 1 row.");
         } else if (matrixA[0].length < 1 || matrixB[0].length < 1) {
