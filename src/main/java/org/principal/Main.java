@@ -50,7 +50,7 @@ public class Main {
 
         Operations op = new Operations(matrixA, matrixB);
 
-        for (int f = 0; f != 1; f=0) {
+        while (true){
             System.out.println("============");
             System.out.println("[1] Add");
             System.out.println("[2] Subtract");
