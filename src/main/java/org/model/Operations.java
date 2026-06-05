@@ -44,4 +44,17 @@ public class Operations {
 
         return add;
     }
+
+    public double[][] subtract(double[][] matrix1, double[][] matrix2) {
+        check();
+
+        double[][] result = new double[matrix1.length][matrix1[0].length];
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[0].length; j++) {
+                result[i][j] = matrix1[i][j] - matrix2[i][j];
+            }
+        }
+
+        return result;
+    }
 }
