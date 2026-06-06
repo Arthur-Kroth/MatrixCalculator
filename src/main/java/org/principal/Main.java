@@ -51,19 +51,19 @@ public class Main {
         Operations op = new Operations(matrixA, matrixB);
 
         while (true){
-            System.out.println("============");
+            System.out.println("=================");
             System.out.println("[1] Add");
             System.out.println("[2] Subtract");
             System.out.println("[3] Multiply");
-            System.out.println("[4] Divide");
-            System.out.println("[5] Show matrix A");
-            System.out.println("[6] Show matrix B");
-            System.out.println("[7] Quit");
-            System.out.println("============");
+            System.out.println("[4] Show matrix A");
+            System.out.println("[5] Show matrix B");
+            System.out.println("[6] Quit");
+            System.out.println("=================");
             System.out.print("Which operation do you want to perform: ");
             operation = sc.nextInt();
 
             double[][] result;
+            int o = 0;
 
             switch (operation) {
                 case 1:
@@ -80,7 +80,7 @@ public class Main {
                     System.out.println("[1] A - B");
                     System.out.println("[2] B - A");
                     System.out.print("Which operation do you want to perform: ");
-                    int o = sc.nextInt();
+                    o = sc.nextInt();
                     if (o == 1) {
                         System.out.println("Matrix A:");
                         op.showMatrix(rowsA, columnsA, matrixA);
@@ -104,18 +104,39 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Fuck You?");
+                    System.out.println("[1] A x B");
+                    System.out.println("[2] B x A");
+                    System.out.print("Which operation do you want to perform: ");
+                    o = sc.nextInt();
+                    if (o == 1) {
+                        System.out.println("Matrix A:");
+                        op.showMatrix(rowsA, columnsA, matrixA);
+                        System.out.println("x");
+                        System.out.println("Matrix B:");
+                        op.showMatrix(rowsB, columnsB, matrixB);
+                        System.out.println("=");
+                        result = op.multiply(matrixA, matrixB);
+                        op.showMatrix(result.length, result[0].length, result);
+                    } else if (o == 2) {
+                        System.out.println("Matrix B:");
+                        op.showMatrix(rowsB, columnsB, matrixB);
+                        System.out.println("x");
+                        System.out.println("Matrix A:");
+                        op.showMatrix(rowsA, columnsA, matrixA);
+                        System.out.println("=");
+                        result = op.multiply(matrixB, matrixA);
+                        op.showMatrix(result.length, result[0].length, result);
+                    } else {
+                        System.out.println("error");
+                    }
                     break;
                 case 4:
-                    System.out.println("Fuck You?");
-                    break;
-                case 5:
                     op.showMatrix(rowsA, columnsA, matrixA);
                     break;
-                case 6:
+                case 5:
                     op.showMatrix(rowsB, columnsB, matrixB);
                     break;
-                case 7:
+                case 6:
                     System.out.println("GOODBYE!");
                     System.exit(0);
                     break;
