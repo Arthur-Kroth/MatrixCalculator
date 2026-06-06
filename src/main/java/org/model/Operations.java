@@ -35,14 +35,14 @@ public class Operations {
     public double[][] add() {
         check();
 
-        double[][] add = new double[matrixA.length][matrixA[0].length];
+        double[][] result = new double[matrixA.length][matrixA[0].length];
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA[0].length; j++) {
-                add[i][j] = matrixA[i][j] + matrixB[i][j];
+                result[i][j] = matrixA[i][j] + matrixB[i][j];
             }
         }
 
-        return add;
+        return result;
     }
 
     public double[][] subtract(double[][] matrix1, double[][] matrix2) {
